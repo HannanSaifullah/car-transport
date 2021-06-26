@@ -1,0 +1,89 @@
+<!-- <app-header title="Home"></app-header> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-container">
+  <!-- <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ folder }}</ion-title>
+      </ion-toolbar>
+    </ion-header> -->
+
+  <!-- <img class="background-image" src="../../assets//images/car-transport.jpg" /> -->
+  <ion-card class="get-quote">
+    <ion-card-title class="title"> Transport the vehicle all over Australia with ease</ion-card-title>
+    <div class="get-quote-form ion-padding-vertical ">
+      <ion-grid class="">
+        <ion-col class="place-selection">
+          <ng-template #empty let-attrs="attrs">
+            <ion-text>Sorry, Suburb Not found</ion-text>
+        </ng-template>
+        <ng-template #withPostalCode let-attrs="attrs">
+          {{attrs.data.postal_code | boldprefix:attrs.keyword}} -
+          <span [innerHTML]="attrs.data.name | boldprefix:attrs.keyword"></span>
+        </ng-template>
+          <ion-row class="ion-padding-horizontal ion-justify-content-center">
+            <ion-col>
+            <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="fromSelected" [useIonInput]="false"
+            [showResultsFirst]="true" [multi]="false" [options]="fromOptions" [emptyTemplate]="empty" (itemSelected) = "fromItemSelected($event)"></ion-auto-complete>
+          </ion-col>
+          <ion-col>
+            <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="toSelected" [useIonInput]="false"
+            [showResultsFirst]="true" [multi]="false" [options]="toOptions" [emptyTemplate]="empty" (itemSelected) = "toItemSelected($event)"></ion-auto-complete>
+          </ion-col><!-- [template]="withPostalCode" -->
+
+            <!-- <div class="autocomplete">
+
+                   <ion-searchbar 
+                  [(ngModel)]="searchTextFrom"
+                  (ngModelChange)="searchFromSuburb($event)"
+                  debounce=100>
+                </ion-searchbar>
+                <ion-list>
+                  <ion-item *ngFor="let suburb of filteredSuburbs">
+                    {{suburb.postal_code}}
+                  </ion-item>
+                </ion-list>
+              </div> -->
+          </ion-row>
+        </ion-col>
+        <ion-col class="">
+          <ion-row class="ion-padding-horizontal ion-justify-content-center">
+            <ion-select placeholder="Sedan / Hatch / Coupe">
+              <ion-select-option value="Sedan">Sedan</ion-select-option>
+              <ion-select-option value="Hatch">Hatch</ion-select-option>
+              <ion-select-option value="Coupe">Coupe</ion-select-option>
+            </ion-select>
+          </ion-row>
+          <ion-row class="ion-padding-top ion-justify-content-center">
+            <ion-checkbox color="primary"></ion-checkbox>
+            <ion-label class="ion-padding-horizontal" color="primary">Modifications</ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-col class="">
+          <ion-row class="ion-padding-horizontal ion-justify-content-center">
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" placeholder="Select a Date" value=""
+              display-timezone="utc">
+            </ion-datetime>
+          </ion-row>
+          <ion-row class="ion-padding-top ion-justify-content-center ion-align-item-center">
+            <ion-checkbox color="primary"></ion-checkbox>
+            <ion-label class="ion-padding-horizontal" color="primary">I agree to the terms & conditions</ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-row class="ion-padding-top ion-justify-content-center">
+          <ion-button color="danger">Calculate</ion-button>
+
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+</ion-content>

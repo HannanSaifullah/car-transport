@@ -1,0 +1,120 @@
+
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  .main-container {
+    text-align: center;
+    left: 0;
+    right: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // background: url("../../assets/images/car-transport.jpg") no-repeat center center fixed;
+    .get-quote {
+      background-color: rgb(217, 217, 247);
+     --ion-background-color: rgb(217, 217, 247);
+    //   opacity: 0.7;
+    //   background-color: #d4e1eb;
+    //   background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
+      .title {
+        color: red;
+      }
+      .get-quote-form {
+        color: #000000;
+      }
+    }
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  /* Set the width to the full container and center the content */
+  ion-select,ion-searchbar {
+    background-color: #fff;
+    --ion-background-color: #fff;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  ion-searchbar input {
+    background-color: #fff;
+  }
+  
+  
+  .place-selection ion-select, ion-searchbar {
+    width: 30%;
+  }
+  
+  /* Set the flex in order to size the text width to its content */
+  ion-select::part(placeholder),
+  ion-select::part(text) {
+    flex: 0 0 auto;
+  }
+  
+  /* Set the placeholder color and opacity */
+  ion-select::part(placeholder) {
+    color: grey;
+    opacity: 1;
+  }
+  
+  /* Set the text color */
+  ion-select::part(text) {
+    color: black;
+  }
+  
+  /* Set the icon color and opacity */
+  ion-select::part(icon) {
+    color: black;
+    opacity: 1;
+  }
+  
+  ion-datetime {
+    width: 40%;
+    background-color: #fff;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  .autocomplete {
+    width: 100%;
+  
+    ion-searchbar {
+      padding: 1px !important;
+    }
+  
+    ion-list {
+      position: absolute;
+      width: inherit;
+      overflow-y: scroll;
+      max-height: 150%;
+      z-index: 999;
+  
+      ion-item {
+  
+        img {
+          max-height: 2.5rem;
+          width: auto;
+          margin: auto;
+          display: block;
+        }
+      }
+  
+      ion-item:hover {
+        cursor: pointer;
+        background: #f1f1f1
+      }
+    }
+  }
