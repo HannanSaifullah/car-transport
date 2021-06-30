@@ -10,12 +10,18 @@ import { FilterSuburbService } from './filterSuburbService';
 })
 export class HomePage implements OnInit {
   suburbs :[] = [];
+  cars:[]=[];
   filteredSuburbs = [];
-  public fromSelected;
-  public toSelected;
   public options:AutoCompleteOptions;
   fromOptions;
   toOptions;
+
+  // form model fields bind with ngModel
+  from;
+  to;
+  car;
+  date;
+  email;
 
   constructor(private service:ConfigService, public filterSuburbService: FilterSuburbService){
     this.options = new AutoCompleteOptions();
@@ -28,14 +34,14 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(){
+    this.getCars();
   }
 
-  getSuburbs() {
-    this.service.getSuburbs().subscribe((res:any) => {
-      this.suburbs = res.payload;
-      this.filteredSuburbs = this.suburbs;
+  getCars(){
+    this.service.getCars().subscribe((res: any) => {
+      this.cars = res.payload;
     })
-  };
+  }
 
   searchFromSuburb(searchValue) {
     console.log(searchValue);
@@ -45,11 +51,26 @@ export class HomePage implements OnInit {
   }
 
   fromItemSelected(object) {
-    this.fromSelected = object;
+    this.from = object;
   }
 
   toItemSelected(object) {
-    this.toSelected = object;
+    this.to = object;
+  }
+
+  calculate() {
+    const postData = {
+      fromSuburb: this.from._id,
+      toSuburb: this.to._id,
+      car: this.car,
+      date: this.date,
+      email: this.email
+    }
+    debugger;
+    this.service.calculate(postData).subscribe((res:any) => {
+      this.suburbs = res.payload;
+      this.filteredSuburbs = this.suburbs;
+    })
   }
 
 }

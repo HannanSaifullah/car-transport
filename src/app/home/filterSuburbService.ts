@@ -2,6 +2,7 @@ import {AutoCompleteService} from 'ionic4-auto-complete';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class FilterSuburbService implements AutoCompleteService {
@@ -14,7 +15,7 @@ export class FilterSuburbService implements AutoCompleteService {
   getResults(keyword:string) {
     if (!keyword) { return false; }
 
-    return this.http.get('http://localhost:5000/api/suburb').pipe(map(
+    return this.http.get(environment.baseUrl +'api/suburb').pipe(map(
        (result: any) => {
         const filteredSuburbs =  result.payload.filter(
              (item) => {

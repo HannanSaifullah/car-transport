@@ -17,9 +17,15 @@ ion-menu-button {
     //   background-color: #d4e1eb;
     //   background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
       .title {
+        padding:  10px 10px 0 10px;
         color: red;
       }
       .get-quote-form {
+        ion-grid {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
         color: #000000;
       }
     }
@@ -42,11 +48,13 @@ ion-menu-button {
   }
   
   /* Set the width to the full container and center the content */
-  ion-select,ion-searchbar {
+  ion-select,ion-searchbar,ion-input, ion-datetime {
+    margin-top: 10px;
     background-color: #fff;
     --ion-background-color: #fff;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 2px;
+    width: 60%;
   }
 
   ion-searchbar input {
@@ -81,13 +89,6 @@ ion-menu-button {
     opacity: 1;
   }
   
-  ion-datetime {
-    width: 40%;
-    background-color: #fff;
-    justify-content: center;
-    border-radius: 5px;
-  }
-
   .autocomplete {
     width: 100%;
   
