@@ -68,7 +68,7 @@ export class HomePage implements OnInit {
       email: this.email
     }
     this.service.calculate(postData).subscribe((res:any) => {
-      // this.resetForm();
+      this.resetForm();
       // this.suburbs = res.payload;
       // this.filteredSuburbs = this.suburbs;
     })
