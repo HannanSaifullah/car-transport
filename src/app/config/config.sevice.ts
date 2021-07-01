@@ -7,7 +7,7 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
     
   calculate(data) {
-    return this.http.post(environment.baseUrl + "api/calculate",data);
+    return this.http.post(environment.baseUrl + "api/city/enquiery",data);
   }
    
   getCars() {

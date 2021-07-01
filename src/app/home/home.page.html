@@ -20,49 +20,51 @@
   <ion-card class="get-quote">
     <ion-card-title class="title"> Transport the vehicle all over Australia with ease</ion-card-title>
     <div class="get-quote-form ion-padding-vertical ">
-      <ion-grid class="">
-        <!-- <ion-col class="place-selection"> -->
-        <ng-template #empty let-attrs="attrs">
-          <ion-text>Sorry, Suburb Not found</ion-text>
-        </ng-template>
-        <ng-template #withPostalCode let-attrs="attrs">
-          {{attrs.data.postal_code | boldprefix:attrs.keyword}} -
-          <span [innerHTML]="attrs.data.name | boldprefix:attrs.keyword"></span>
-        </ng-template>
-        <!-- <ion-row class="ion-padding-horizontal ion-justify-content-center"> -->
-        <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="from" [useIonInput]="false"
-          [showResultsFirst]="true" [multi]="false" [options]="fromOptions" [emptyTemplate]="empty"
-          (itemSelected)="fromItemSelected($event)"></ion-auto-complete>
-        <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="to" [useIonInput]="false"
-          [showResultsFirst]="true" [multi]="false" [options]="toOptions" [emptyTemplate]="empty"
-          (itemSelected)="toItemSelected($event)"></ion-auto-complete>
-        <!-- [template]="withPostalCode" -->
+      <form #myForm="ngForm">
+        <ion-grid class="">
+          <!-- <ion-col class="place-selection"> -->
+          <ng-template #empty let-attrs="attrs">
+            <ion-text>Sorry, Suburb Not found</ion-text>
+          </ng-template>
+          <ng-template #withPostalCode let-attrs="attrs">
+            {{attrs.data.postal_code | boldprefix:attrs.keyword}} -
+            <span [innerHTML]="attrs.data.name | boldprefix:attrs.keyword"></span>
+          </ng-template>
+          <!-- <ion-row class="ion-padding-horizontal ion-justify-content-center"> -->
+          <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="from" name="from" [useIonInput]="false"
+            [showResultsFirst]="true" [multi]="false" [options]="fromOptions" [emptyTemplate]="empty"
+            (itemSelected)="fromItemSelected($event)"></ion-auto-complete>
+          <ion-auto-complete [dataProvider]="filterSuburbService" [(ngModel)]="to" name="to" [useIonInput]="false"
+            [showResultsFirst]="true" [multi]="false" [options]="toOptions" [emptyTemplate]="empty"
+            (itemSelected)="toItemSelected($event)"></ion-auto-complete>
+          <!-- [template]="withPostalCode" -->
 
-        <ion-select placeholder="Select Car" [(ngModel)]="car" >
-          <ion-select-option *ngFor="let car of cars" [value]="car._id">{{car.name}}</ion-select-option>
-        </ion-select>
-        <!-- </ion-row> -->
-        <ion-row class="ion-padding-top ion-justify-content-center">
-          <ion-checkbox color="primary"></ion-checkbox>
-          <ion-label class="ion-padding-horizontal" color="primary">Modifications</ion-label>
-        </ion-row>
-        <!-- </ion-col> -->
+          <ion-select placeholder="Select Car" [(ngModel)]="car" name="car" >
+            <ion-select-option *ngFor="let car of cars" [value]="car._id">{{car.name}}</ion-select-option>
+          </ion-select>
+          <!-- </ion-row> -->
+          <ion-row class="ion-padding-top ion-justify-content-center">
+            <ion-checkbox color="primary" name="modifications" disabled></ion-checkbox>
+            <ion-label class="ion-padding-horizontal"  color="primary">Modifications</ion-label>
+          </ion-row>
+          <!-- </ion-col> -->
 
-        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" placeholder="Select a Date" value=""
-          display-timezone="utc"  [(ngModel)]="date">
-        </ion-datetime>
-        <ion-input placeholder="Enter Email"  [(ngModel)]="email" type="email" >
-        </ion-input>
+          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" placeholder="Select a Date" value=""
+            display-timezone="utc" [(ngModel)]="date" name="date">
+          </ion-datetime>
+          <ion-input placeholder="Enter Email"  [(ngModel)]="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" type="email" name="emailText" #emailText="ngModel"></ion-input>
+          <span class="ion-text-sm text-danger" *ngIf="emailText.errors?.pattern" >Please enter valid Email address</span>
 
-        <ion-row class="ion-padding-top ion-justify-content-center ion-align-item-center">
-          <ion-checkbox color="primary"></ion-checkbox>
-          <ion-label class="ion-padding-horizontal" color="primary">I agree to the terms & conditions</ion-label>
-        </ion-row>
-        <ion-row class="ion-padding-top ion-justify-content-center">
-          <ion-button color="danger" (click)="calculate()">Calculate</ion-button>
-
-        </ion-row>
-      </ion-grid>
+          <ion-row class="ion-padding-top ion-justify-content-center ion-align-item-center">
+            <ion-checkbox color="primary" [(ngModel)]="tAndC" name="tAndC"></ion-checkbox>
+            <ion-label class="ion-padding-horizontal" color="primary">I agree to the terms & conditions</ion-label>
+          </ion-row>
+          <ion-row class="ion-padding-top ion-justify-content-center">
+            <ion-button color="danger" (click)="calculate()" [disabled]="!tAndC || !email || !date || !car || !from || !to || emailText.errors?.pattern ">Calculate</ion-button>
+          </ion-row>
+          <ion-text class="ion-text-sm text-danger">**All fields are required for Enquiry</ion-text>
+        </ion-grid>
+      </form>
     </div>
   </ion-card>
   <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->

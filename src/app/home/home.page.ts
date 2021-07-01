@@ -22,6 +22,7 @@ export class HomePage implements OnInit {
   car;
   date;
   email;
+  tAndC : Boolean = false;
 
   constructor(private service:ConfigService, public filterSuburbService: FilterSuburbService){
     this.options = new AutoCompleteOptions();
@@ -66,11 +67,19 @@ export class HomePage implements OnInit {
       date: this.date,
       email: this.email
     }
-    debugger;
     this.service.calculate(postData).subscribe((res:any) => {
-      this.suburbs = res.payload;
-      this.filteredSuburbs = this.suburbs;
+      // this.resetForm();
+      // this.suburbs = res.payload;
+      // this.filteredSuburbs = this.suburbs;
     })
+  }
+
+  resetForm() {
+    this.from = {};
+    this.to = {};
+    this.car=null;
+    this.date =null;
+    this.email = null;
   }
 
 }
