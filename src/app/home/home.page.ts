@@ -68,9 +68,12 @@ export class HomePage implements OnInit {
       email: this.email
     }
     this.service.calculate(postData).subscribe((res:any) => {
-      this.resetForm();
-      // this.suburbs = res.payload;
-      // this.filteredSuburbs = this.suburbs;
+      if (res.status == 200) {
+        this.service.showSuccess('Enquiry Details has been sent');
+        this.resetForm();
+      } else {
+        this.service.showError(res.message);
+      }
     })
   }
 

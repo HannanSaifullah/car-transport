@@ -13,6 +13,14 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../home/home.module#HomePageModule'
+          },
+          {
+            path: 'about',
+            loadChildren: '../about-us/about-us.module#AboutUsPageModule'
+          },
+          {
+            path: 'contact',
+            loadChildren: '../contact-us/contact-us.module#ContactUsPageModule'
           }
         ]
       },
