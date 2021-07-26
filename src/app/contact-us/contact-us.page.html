@@ -1,0 +1,38 @@
+<app-header></app-header>
+<ion-content class="main-container">
+  <ion-card class="contact-us">
+    <ion-row class="ion-justify-content-evenly ion-align-items-center">
+      <ion-card-title class="ion-float-center hydrated" role="heading" aria-level="2">Let us know your
+        Queries</ion-card-title>
+      <ion-list class="contact-info list list-md hydrated">
+        <ion-item lines="none" class="ion-text-uppercase align-self-center">
+          <b><u>Contact Information</u></b>
+        </ion-item>
+        <ion-item class=""> Phone No : - </ion-item>
+        <ion-item class=""> Email : <a [href]="'mailto:' + adminEmail">{{adminEmail}}</a></ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-card>
+  <ion-card class="contact-us">
+    <ion-card-title class="title"> Contact Us</ion-card-title>
+    <div class="contact-us-form ion-padding-vertical ">
+      <form #contactForm="ngForm">
+        <ion-grid class="">
+          <ion-input placeholder="Enter Name" [(ngModel)]="name" name="name" required></ion-input>
+          <ion-input placeholder="Enter Email" [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+            type="email" name="emailText" #emailText="ngModel" required></ion-input>
+          <span class="ion-text-sm text-danger" *ngIf="emailText.errors?.pattern">Please enter valid Email
+            address</span>
+          <ion-textarea placeholder="Add a Message" [(ngModel)]="message" name="message" rows="5" required>
+          </ion-textarea>
+          <ion-row class="ion-padding-top ion-justify-content-center">
+            <ion-button color="primary" class="ect-button" (click)="calculate()" [disabled]="!contactForm.valid">Submit
+            </ion-button>
+          </ion-row>
+          <ion-text class="ion-text-sm text-danger">**All fields are required for Enquiry</ion-text>
+        </ion-grid>
+      </form>
+    </div>
+  </ion-card>
+  <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+</ion-content>

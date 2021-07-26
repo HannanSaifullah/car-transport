@@ -1,0 +1,43 @@
+
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  .main-container {
+    text-align: center;
+    left: 0;
+    right: 0;
+    .contact-us {
+      background-color: rgba(0, 0, 128,0.25);
+      --ion-background-color: #rgba(0, 0, 128,0.25);
+      padding: 10px;
+      align-items: center;
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        ion-item {
+          color: #000080;
+        }
+      }
+      .title {
+        padding:  10px 10px 0 10px;
+        color: #000080;
+      }
+      .contact-us-form {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+        color: #000000;
+      }
+    }
+  }
+  
+  /* Set the width to the full container and center the content */
+  ion-select,ion-searchbar,ion-input, ion-datetime,ion-textarea {
+    margin-top: 10px;
+    background-color: #fff;
+    --ion-background-color: #fff;
+    justify-content: center;
+    border-radius: 2px;
+  }

@@ -9,16 +9,49 @@ ion-menu-button {
     right: 0;
     // top: 50%;
     // transform: translateY(-50%);
-    // background: url("../../assets/images/car-transport.jpg") no-repeat center center fixed;
+    // opacity: 0.2;
+    // --background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(315deg,#d6defd 40%, #fdfcfc 60%);
+
+    // --background: url("../../assets/images/background.jpg") no-repeat center center fixed;
+    // .get-quote {
+    //   // background-color: rgb(217, 217, 247);
+    // //  --ion-background-color: rgb(217, 217, 247);
+    //   // opacity: 0.7;
+    // //   background-color: #d4e1eb;
+    //   // background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
+    //   background-repeat: no-repeat;
+    //   background-size: cover;
+    //    background-position: center;
+    //   background-image: url("../../assets/images/background.jpg"), linear-gradient(315deg,#567dfd 0%, #000000 74%);
+
     .get-quote {
-      background-color: rgb(217, 217, 247);
-     --ion-background-color: rgb(217, 217, 247);
-    //   opacity: 0.7;
-    //   background-color: #d4e1eb;
-    //   background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
+      &::before { 
+      content: "";
+      position: absolute;
+      height: 100%;
+      background-color:rgba(0, 0, 0, 0.2);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-image: url("../../assets/images/background.jpg");
+      opacity:0.45;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      }
+      // background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(317deg, #bdcbfd 10%, #e0e7ff 35%);
+      .get-quote-box{
+        // margin: auto;
+        // position: fixed;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+      }
+    }
       .title {
         padding:  10px 10px 0 10px;
-        color: red;
+        color: #000080;
       }
       .get-quote-form {
         ion-grid {
@@ -26,9 +59,9 @@ ion-menu-button {
           align-items: center;
           flex-direction: column;
         }
-        color: #000000;
+        color: #000080;
       }
-    }
+    // }
   }
   
   #container strong {
