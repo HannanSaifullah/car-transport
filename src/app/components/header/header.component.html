@@ -1,14 +1,19 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-         {{title}}
-      </ion-title>
-      <!-- <ion-buttons slot="end">
-        <ion-icon class="m-2" (click)="settings()" name="settings" style="zoom:1.5;"></ion-icon>
-      </ion-buttons> -->
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-row class="align-items-center justify-content-between header">
+      <ion-item   lines="none">
+        <ion-img [routerLink]="'/'" class="logo" [src]="'assets/images/logo.jpg'" style="width: 80px; height: 80px;"></ion-img>
+        <ion-title [routerLink]="'/'">{{title}} </ion-title>
+      </ion-item>
+
+        <ion-row ion-list class="main-nav" >
+          <ion-item tabindex="0" [routerLink]="'/about'" class=" "  lines="none">About</ion-item>
+          <ion-item tabindex="1" [routerLink]="'/contact'" class=" " lines="none">Contact Us</ion-item>
+        </ion-row>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-header>
