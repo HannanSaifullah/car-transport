@@ -1,25 +1,29 @@
-
 ion-menu-button {
-    color: var(--ion-color-primary);
-  }
-  
-  .main-container {
+  color: var(--ion-color-primary);
+}
+
+.main-container {
+  text-align: center;
+  left: 0;
+  right: 0;
+  .about-us {
+    background-color: #000080;
+    padding: 10px;
+    color: #ffffff;
     text-align: center;
-    left: 0;
-    right: 0;
-    .about-us {
-      background-color: rgba(0, 0, 128,0.25);
-      --ion-background-color: #rgba(0, 0, 128,0.25);
-      padding: 10px;
-       color: #000080;
-      text-align: center;
-      ion-item {
-        color: #000080;
-      }
-      .title {
-        padding:  10px 10px 10px 10px;
-        color: #000080;
-      }
+    ion-item {
+      color: #ffffff;
+    }
+    .title {
+      padding: 10px 10px 10px 10px;
+      color: #ffffff;
+    }
+    .about-us-content {
+      padding: 15px;
+      ::ng-deep p {
+        font-size: 15px;
+        color: #ffffff;
       }
     }
-  
+  }
+}

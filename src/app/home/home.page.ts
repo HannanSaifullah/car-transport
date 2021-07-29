@@ -30,8 +30,8 @@ export class HomePage implements OnInit {
     this.options.autocomplete = 'on';
     this.options.debounce = 150;
     this.options.placeholder = 'Type text to search..';
-    this.fromOptions = {...this.options,placeholder:'From'}
-    this.toOptions = {...this.options,placeholder:'To'}
+    this.fromOptions = {...this.options,placeholder:'From**'}
+    this.toOptions = {...this.options,placeholder:'To**'}
   }
 
   ngOnInit(){

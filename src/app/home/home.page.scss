@@ -1,154 +1,163 @@
-
 ion-menu-button {
-    color: var(--ion-color-primary);
-  }
-  
-  .main-container {
-    text-align: center;
-    left: 0;
-    right: 0;
-    // top: 50%;
-    // transform: translateY(-50%);
-    // opacity: 0.2;
-    // --background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(315deg,#d6defd 40%, #fdfcfc 60%);
+  color: var(--ion-color-primary);
+}
 
-    // --background: url("../../assets/images/background.jpg") no-repeat center center fixed;
-    // .get-quote {
-    //   // background-color: rgb(217, 217, 247);
-    // //  --ion-background-color: rgb(217, 217, 247);
-    //   // opacity: 0.7;
-    // //   background-color: #d4e1eb;
-    //   // background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
-    //   background-repeat: no-repeat;
-    //   background-size: cover;
-    //    background-position: center;
-    //   background-image: url("../../assets/images/background.jpg"), linear-gradient(315deg,#567dfd 0%, #000000 74%);
+.main-container {
+  text-align: center;
+  left: 0;
+  right: 0;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // opacity: 0.2;
+  // --background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(315deg,#d6defd 40%, #fdfcfc 60%);
 
-    .get-quote {
-      &::before { 
+  // --background: url("../../assets/images/background.jpg") no-repeat center center fixed;
+  // .get-quote {
+  //   // background-color: rgb(217, 217, 247);
+  // //  --ion-background-color: rgb(217, 217, 247);
+  //   // opacity: 0.7;
+  // //   background-color: #d4e1eb;
+  //   // background-image: linear-gradient(315deg, #567dfd 0%, #000000 74%);
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //    background-position: center;
+  //   background-image: url("../../assets/images/background.jpg"), linear-gradient(315deg,#567dfd 0%, #000000 74%);
+
+  .get-quote {
+    &::before {
       content: "";
       position: absolute;
       height: 100%;
-      background-color:rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.2);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       background-image: url("../../assets/images/background.jpg");
-      opacity:0.45;
+      opacity: 0.35;
       top: 0px;
       right: 0px;
       bottom: 0px;
       left: 0px;
-      }
-      // background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(317deg, #bdcbfd 10%, #e0e7ff 35%);
-      .get-quote-box{
-        // margin: auto;
-        // position: fixed;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
-      }
     }
-      .title {
-        padding:  10px 10px 0 10px;
-        color: #000080;
-      }
-      .get-quote-form {
-        ion-grid {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-        }
-        color: #000080;
-      }
-    // }
+    // background: url("../../assets/images/background.jpg") no-repeat center fixed, linear-gradient(317deg, #bdcbfd 10%, #e0e7ff 35%);
+    .get-quote-box {
+      // margin: auto;
+      // position: fixed;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+    }
   }
-  
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
+  .title {
+    padding: 10px 10px 0 10px;
+    color: #000080;
+    // font-weight: 900;
   }
-  
-  #container p {
-    font-size: 16px;
-    line-height: 22px;
-    color: #8c8c8c;
-    margin: 0;
+  .get-quote-form {
+    ion-grid {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      // font-weight: 900;
+    }
+    .calculate-btn {
+      --background: #000080;
+    }
+    color: #000080;
   }
-  
-  #container a {
-    text-decoration: none;
+  // }
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+/* Set the width to the full container and center the content */
+ion-select,
+ion-searchbar,
+ion-input,
+ion-datetime {
+  margin-top: 10px;
+  background-color: #fff;
+  --ion-background-color: #fff;
+  justify-content: center;
+  border-radius: 2px;
+  width: 40%;
+  &.email{
+    width:50%
   }
-  
-  /* Set the width to the full container and center the content */
-  ion-select,ion-searchbar,ion-input, ion-datetime {
-    margin-top: 10px;
-    background-color: #fff;
-    --ion-background-color: #fff;
-    justify-content: center;
-    border-radius: 2px;
-    width: 60%;
+}
+
+ion-searchbar input {
+  background-color: #fff;
+}
+
+.place-selection ion-select,
+ion-searchbar {
+  width: 50%;
+}
+
+/* Set the flex in order to size the text width to its content */
+ion-select::part(placeholder),
+ion-select::part(text) {
+  flex: 0 0 auto;
+}
+
+/* Set the placeholder color and opacity */
+ion-select::part(placeholder) {
+  color: grey;
+  opacity: 1;
+}
+
+/* Set the text color */
+ion-select::part(text) {
+  color: black;
+}
+
+/* Set the icon color and opacity */
+ion-select::part(icon) {
+  color: black;
+  opacity: 1;
+}
+
+.autocomplete {
+  width: 100%;
+
+  ion-searchbar {
+    padding: 1px !important;
   }
 
-  ion-searchbar input {
-    background-color: #fff;
-  }
-  
-  
-  .place-selection ion-select, ion-searchbar {
-    width: 30%;
-  }
-  
-  /* Set the flex in order to size the text width to its content */
-  ion-select::part(placeholder),
-  ion-select::part(text) {
-    flex: 0 0 auto;
-  }
-  
-  /* Set the placeholder color and opacity */
-  ion-select::part(placeholder) {
-    color: grey;
-    opacity: 1;
-  }
-  
-  /* Set the text color */
-  ion-select::part(text) {
-    color: black;
-  }
-  
-  /* Set the icon color and opacity */
-  ion-select::part(icon) {
-    color: black;
-    opacity: 1;
-  }
-  
-  .autocomplete {
-    width: 100%;
-  
-    ion-searchbar {
-      padding: 1px !important;
-    }
-  
-    ion-list {
-      position: absolute;
-      width: inherit;
-      overflow-y: scroll;
-      max-height: 150%;
-      z-index: 999;
-  
-      ion-item {
-  
-        img {
-          max-height: 2.5rem;
-          width: auto;
-          margin: auto;
-          display: block;
-        }
-      }
-  
-      ion-item:hover {
-        cursor: pointer;
-        background: #f1f1f1
+  ion-list {
+    position: absolute;
+    width: inherit;
+    overflow-y: scroll;
+    max-height: 150%;
+    z-index: 999;
+
+    ion-item {
+      img {
+        max-height: 2.5rem;
+        width: auto;
+        margin: auto;
+        display: block;
       }
     }
+
+    ion-item:hover {
+      cursor: pointer;
+      background: #f1f1f1;
+    }
   }
+}

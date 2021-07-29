@@ -12,7 +12,7 @@
 @import "~ionic4-auto-complete/auto-complete";
 
 ion-auto-complete {
-    width: 60%;
+    width: 50%;
     ion-searchbar{
         --ion-background-color: #ffffff;
     }
@@ -22,7 +22,7 @@ ion-auto-complete {
             text-align: left;
             padding:2px;
          }
-         width: 59vw;
+         width: 49vw;
     }
   }
   .toolbar{
@@ -38,21 +38,19 @@ ion-auto-complete {
       }
     }
   }
-  
-  /* Set the width to the full container and center the content */
-  ion-select,ion-searchbar,ion-input, ion-datetime,ion-textarea {
-    margin-top: 10px;
-    background-color: #fff;
-    --ion-background-color: #fff;
-    justify-content: center;
-    border-radius: 2px;
-    width: 60%;
-  }
 
-  .ect-button{
-    color: rgba(0,0,128,0.4);
+  .ect-button-white{
+    --background: #ffffff;
+    color: #000000;
   }
 
   a {
     color: #000080 !important;
+  }
+
+  .toast-success{
+    --ion-color-base: #000080 !important;
+  }
+  .toast-error{
+    --ion-color-base: #be0211 !important;
   }

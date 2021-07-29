@@ -8,7 +8,7 @@ export class ConfigService {
   constructor(private http: HttpClient,private toastController: ToastController) { }
     
   calculate(data) {
-    return this.http.post(environment.baseUrl + "api/city/enquiery",data);
+    return this.http.post(environment.baseUrl + "api/city/enquiry",data);
   }
    
   getCars() {
@@ -19,20 +19,21 @@ export class ConfigService {
     return this.http.post(environment.baseUrl + "api/contact-us", data);
   }
 
-  async showToast(message, color?, duration?) {
+  async showToast(message, color?, duration?,isSuccess: boolean = false) {
     const toast = await this.toastController.create({
       message: message,
       duration: duration || 2000,
       color: color || 'success',
+      cssClass: isSuccess ? 'toast-success' : 'toast-error'
     });
     toast.present();
   }
 
   showSuccess(message, duration?) {
-    this.showToast(message, 'success', duration);
+    this.showToast(message, 'success', duration,true);
   }
 
   showError(message, duration?) {
-    this.showToast(message, 'danger', duration);
+    this.showToast(message, 'danger', duration,false);
   }
 }

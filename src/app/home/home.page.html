@@ -26,7 +26,7 @@
             (itemSelected)="toItemSelected($event)"></ion-auto-complete>
           <!-- [template]="withPostalCode" -->
 
-          <ion-select placeholder="Select Car" [(ngModel)]="car" name="car" >
+          <ion-select placeholder="Select Car**" [(ngModel)]="car" name="car" >
             <ion-select-option *ngFor="let car of cars" [value]="car._id">{{car.name}}</ion-select-option>
           </ion-select>
           <!-- </ion-row> -->
@@ -36,10 +36,10 @@
           </ion-row>
           <!-- </ion-col> -->
 
-          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" placeholder="Select a Date" value=""
+          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" placeholder="Select a Date**" value=""
             display-timezone="utc" [(ngModel)]="date" name="date">
           </ion-datetime>
-          <ion-input placeholder="Enter Email"  [(ngModel)]="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" type="email" name="emailText" #emailText="ngModel"></ion-input>
+          <ion-input class="email" placeholder="Enter Email**"  [(ngModel)]="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" type="email" name="emailText" #emailText="ngModel"></ion-input>
           <span class="ion-text-sm text-danger" *ngIf="emailText.errors?.pattern" >Please enter valid Email address</span>
 
           <ion-row class="ion-padding-top ion-justify-content-center ion-align-item-center">
@@ -47,7 +47,7 @@
             <ion-label class="ion-padding-horizontal" color="primary">I agree to the terms & conditions</ion-label>
           </ion-row>
           <ion-row class="ion-padding-top ion-justify-content-center">
-            <ion-button color="danger" (click)="calculate()" [disabled]="!tAndC || !email || !date || !car || !from || !to || emailText.errors?.pattern ">Calculate</ion-button>
+            <ion-button class="calculate-btn" (click)="calculate()" [disabled]="!tAndC || !email || !date || !car || !from || !to || emailText.errors?.pattern ">Calculate</ion-button>
           </ion-row>
           <ion-text class="ion-text-sm text-danger">**All fields are required for Enquiry</ion-text>
         </ion-grid>
